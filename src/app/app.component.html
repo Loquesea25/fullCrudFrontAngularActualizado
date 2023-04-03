@@ -1,0 +1,41 @@
+<div class="formularioRegistro">
+  <h2>Ingresar persona</h2>
+  <form [formGroup]="personaForm" (ngSubmit)="guardar()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="namePersona" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Apellido</label>
+      <input type="text" formControlName="lastNamePersona" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Edad</label>
+      <input type="number" formControlName="agePersona" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="emailPersona" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Pais</label>
+      <select name="pais" id="pais" formControlName="pais" class="form-control">
+      <option [ngValue]="item" *ngFor="let item of paises">{{item.namePais}}</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label>Ciudad</label>
+      <select name="ciudad" id="ciudad" formControlName="ciudad" class="form-control">
+      <option [ngValue]="item" *ngFor="let item of ciudades">{{item.nameCiudad}}</option>
+    </select>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Guardar</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
